@@ -1,0 +1,15 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+<SiteLayout lang="es" path="/" title="Nicolás Vazquez — Supraim" description="Portfolio de Nicolás Vazquez y aplicaciones oficiales de Supraim.">
+  <section class="hero" style="min-height:300px">
+    <div><span class="eyebrow">SUPRAIM · APP DEVELOPER</span><h1>Redirigiendo…</h1><p class="hero-copy">Choose your language / Elegí tu idioma.</p><div class="hero-actions"><a class="button" href="/es/">Español</a><a class="button" href="/en/">English</a></div></div>
+  </section>
+  <script is:inline>
+    (() => {
+      const saved = localStorage.getItem('supraim-language');
+      const preferred = saved || (navigator.language?.toLowerCase().startsWith('en') ? 'en' : 'es');
+      window.location.replace(preferred === 'en' ? '/en/' : '/es/');
+    })();
+  </script>
+</SiteLayout>
